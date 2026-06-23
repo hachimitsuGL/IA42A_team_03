@@ -17,6 +17,11 @@
     </div>
 
     <script>
+      async function loadTasks() {
+        const res = await fetch("/api/tasks");
+        const data = await res.json();
+        renderTasks(data);
+      }
       // ★開発段階ではコード内に仮データを書く（Step 1で決めた形に合わせる）
       const mockData = {
         generated_at: "2026-06-16 10:30:00",
@@ -59,7 +64,7 @@
       }
 
       // 仮データで表示を確認する
-      renderTasks(mockData);
+      loadTasks();
     </script>
   </body>
 </html>
